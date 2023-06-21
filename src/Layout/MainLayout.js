@@ -24,7 +24,7 @@ const MainLayout = ({ children }) => {
                 Dashboard
               </Link>
               <button onClick={handleLogout} className="dropdown-item">
-                Dashboard
+                logout
               </button>
             </Dropdown.Menu>
           </Dropdown>
