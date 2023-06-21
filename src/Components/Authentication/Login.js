@@ -1,8 +1,13 @@
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { loginSchema } from "../../Schemas/registrationSchema";
+import { loginUser } from "../../store/auth/loginSlice";
 
 const Login = () => {
+  const { login } = useSelector((state) => state?.login);
+
+  const dispatch = useDispatch();
   const [values, setValues] = useState(null);
   const initialValues = {
     email: "",
@@ -10,8 +15,10 @@ const Login = () => {
   };
   const handleSubmit = (values) => {
     console.log(values);
+    dispatch(loginUser(values));
     // register(values);
   };
+
   return (
     <section className="account-form-inner">
       <Formik
@@ -56,18 +63,7 @@ const Login = () => {
                 </span>
               </div>
 
-              <button
-                type="submit"
-                disabled={
-                  values?.password === values?.confirmPassword &&
-                  values?.password !== ""
-                    ? false
-                    : true
-                }
-                className=""
-              >
-                Create Account
-              </button>
+              <button type="submit">Create Account</button>
             </div>
           </Form>
         )}

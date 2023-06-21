@@ -12,7 +12,6 @@ export const createUser = createAsyncThunk("user/createUser", async (value) => {
     `http://localhost:9000/api/auth/singup`,
     value
   );
-
   return response.data;
 });
 

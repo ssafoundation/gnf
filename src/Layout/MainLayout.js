@@ -1,9 +1,14 @@
 import React from "react";
 import { Container, Dropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "./img/logo.png";
 import "./layout.scss";
 const MainLayout = ({ children }) => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <div className="gnf-main-layout">
       <div className="gnf-header-top-bar">
@@ -15,7 +20,12 @@ const MainLayout = ({ children }) => {
             <Dropdown.Toggle>Profile</Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Dashboard</Dropdown.Item>
+              <Link to="/" className="dropdown-item">
+                Dashboard
+              </Link>
+              <button onClick={handleLogout} className="dropdown-item">
+                Dashboard
+              </button>
             </Dropdown.Menu>
           </Dropdown>
         </div>

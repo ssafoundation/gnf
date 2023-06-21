@@ -6,9 +6,9 @@ import { taskData } from "../../assets/dummyData/taskData";
 
 const Home = () => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   return (
     <MainLayout>
       <Modal show={show} onHide={handleClose} className="modal-form-wrap">
