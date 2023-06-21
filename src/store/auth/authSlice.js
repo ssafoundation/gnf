@@ -9,7 +9,7 @@ const initialState = {
 export const createUser = createAsyncThunk("user/createUser", async (value) => {
   console.log(value);
   const response = await axios.post(
-    `http://localhost:9000/api/auth/singup`,
+    `https://common-use-api.onrender.com/api/auth/singup`,
     value
   );
   return response.data;

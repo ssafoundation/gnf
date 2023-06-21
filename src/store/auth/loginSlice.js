@@ -11,7 +11,7 @@ const initialState = {
 export const loginUser = createAsyncThunk("user/createUser", async (value) => {
   console.log(value);
   const response = await axios.post(
-    `http://localhost:9000/api/auth/login`,
+    `https://common-use-api.onrender.com/api/auth/login`,
     value
   );
   return response.data;
